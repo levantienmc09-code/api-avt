@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Avatar</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Random Avatar</h2>
+<img id="avatar" src="" alt="avatar">
+<br>
+<button onclick="randomAvt()">Random lại</button>
+
+<script>
+function randomAvt() {
+  fetch("https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img.json")
+    .then(res => res.json())
+    .then(list => {
+      const file = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("avatar").src =
+        "https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img/" +
+        file + "?t=" + Date.now();
+    });
+}
+
+randomAvt(); // load lần đầu
+</script>
+
+</body>
+</html>
