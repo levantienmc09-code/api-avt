@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+fetch("https://raw.githubusercontent.com/USERNAME/REPO/main/avatars.json")
+  .then(r => r.json())
+  .then(list => {
+    const file = list[Math.floor(Math.random() * list.length)];
+    location.href =
+      "https://raw.githubusercontent.com/USERNAME/REPO/main/avatars/" +
+      file + "?t=" + Date.now();
+  });
+</script>
+</head>
+<body></body>
+</html>
