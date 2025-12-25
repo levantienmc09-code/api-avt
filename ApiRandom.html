@@ -1,48 +1,15 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Api Random Avatar</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin-top: 50px;
-    }
-    img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      object-fit: cover;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+  <title>API Random Avatar</title>
+  <script>
+    const MAX_AVT = 32;
+    const i = Math.floor(Math.random() * MAX_AVT) + 1;
+
+    // redirect sang ảnh TRÊN GITHUB PAGES (KHÔNG PHẢI RAW)
+    location.href = "./Img/Avt" + i + ".png?t=" + Date.now();
+  </script>
 </head>
-<body>
-
-<h2>Random Avatar</h2>
-<img id="avatar" src="">
-<br>
-<button onclick="randomAvt()">Random lại</button>
-
-<script>
-const MAX_AVT = 32; // 🔧 đổi theo số ảnh bạn có
-
-function randomAvt() {
-  const i = Math.floor(Math.random() * MAX_AVT) + 1;
-  document.getElementById("avatar").src =
-    "./Img/Avt" + i + ".png?t=" + Date.now();
-}
-
-// load lần đầu
-randomAvt();
-</script>
-
-</body>
+<body></body>
 </html>
