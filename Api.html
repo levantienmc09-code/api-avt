@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>API Random Avatar</title>
+</head>
+<body>
+<script>
+fetch("https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img.json")
+  .then(res => res.json())
+  .then(list => {
+    const file = list[Math.floor(Math.random() * list.length)];
+    window.location.href =
+      "https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img/" +
+      file + "?t=" + Date.now();
+  })
+  .catch(err => {
+    document.body.innerText = "ERROR: " + err;
+  });
+</script>
+</body>
+</html>
