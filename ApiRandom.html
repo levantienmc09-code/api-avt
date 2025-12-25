@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Random Avatar</title>
+  <title>Api Random Avatar</title>
   <style>
     body {
       font-family: Arial;
@@ -12,37 +12,36 @@
     img {
       width: 200px;
       height: 200px;
-      object-fit: cover;
       border-radius: 50%;
       border: 2px solid #ccc;
+      object-fit: cover;
     }
     button {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
 <h2>Random Avatar</h2>
-<img id="avatar" src="" alt="avatar">
+<img id="avatar" src="">
 <br>
 <button onclick="randomAvt()">Random lại</button>
 
 <script>
+const MAX_AVT = 32; // 🔧 đổi theo số ảnh bạn có
+
 function randomAvt() {
-  fetch("https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img.json")
-    .then(res => res.json())
-    .then(list => {
-      const file = list[Math.floor(Math.random() * list.length)];
-      document.getElementById("avatar").src =
-        "https://raw.githubusercontent.com/levantienmc09-code/api-avt/main/Img/" +
-        file + "?t=" + Date.now();
-    });
+  const i = Math.floor(Math.random() * MAX_AVT) + 1;
+  document.getElementById("avatar").src =
+    "./Img/Avt" + i + ".png?t=" + Date.now();
 }
 
-randomAvt(); // load lần đầu
+// load lần đầu
+randomAvt();
 </script>
 
 </body>
